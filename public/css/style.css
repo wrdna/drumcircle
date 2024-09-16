@@ -1,0 +1,154 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+#usernameInput {
+}
+
+#usernameContainer {
+  margin-top: 20px;
+}
+
+#usernameContainer * {
+  margin-top: 5px;
+  font-size: 25px;
+}
+
+.drum-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 150px;
+  height: 150px;
+}
+
+.drum {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #444;
+  margin: 20px;
+  display: inline-block;
+  box-shadow: 0 0 5px;
+}
+
+.active {
+  transition: background-color 2s cubic-bezier(0,.86,.6,.93),
+              box-shadow 2s cubic-bezier(0,.86,.6,.93);
+}
+
+#drumCircle {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  border: 0px solid #ccc;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#soundSelector {
+  position: absolute;
+  top: 50%;           
+  left: 20px;          
+  transform: translateY(-50%);
+  background-color: white; 
+  padding: 5px;     
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* History and BPM container */
+#historyAndBpmContainer {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 140px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 2px solid #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+/* History container */
+#historyContainer {
+  width: 100%;
+  height: 400px;  /* Increased height to give more space for notes */
+  overflow: hidden;
+  border-bottom: 2px solid #fff;  /* Add a border to separate history from the slider */
+}
+
+/* BPM container */
+#bpmContainer {
+  margin-top: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Style for the BPM slider */
+#bpmDial {
+  width: 100%;
+}
+
+/* Show/Hide toggle button */
+#toggleHistoryButton {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#toggleHistoryButton:hover {
+  background-color: #0056b3;
+}
+
+/* Username toggle container */
+#usernameToggleContainer {
+  margin-top: 10px;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Individual notes */
+.note {
+  width: 100px;
+  height: 30px;
+  background-color: red;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: moveNoteDown var(--note-duration) linear forwards;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  padding: 5px;
+}
+
+/* Note animation */
+@keyframes moveNoteDown {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: 400px;  /* Match the height of the history container */
+    opacity: 0;
+  }
+}

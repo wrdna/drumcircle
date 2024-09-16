@@ -3,17 +3,25 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run serve-frontend\" \"npm run serve-websocket\"",
-    "serve-frontend": "http-server -c-1 -p 8080",
-    "serve-websocket": "node server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "concurrently": "^8.2.2",
     "express": "^4.19.2",
     "http-server": "^14.1.1",
     "ws": "^8.18.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wrdna/drumcircle.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/wrdna/drumcircle/issues"
+  },
+  "homepage": "https://github.com/wrdna/drumcircle#readme",
+  "devDependencies": {},
+  "description": ""
 }

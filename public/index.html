@@ -3,53 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Talking Drum Circle</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    #usernameContainer {
-      margin-top: 20px;
-    }
-    .drum-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .drum {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: #444;
-      margin: 20px;
-      display: inline-block;
-      transition: background-color 0.3s, box-shadow 0.3s;
-    }
-    .active {
-      box-shadow: 0 0 20px;
-    }
-    #drumCircle {
-      margin-top: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
+  <title>drumcircle</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Username and Color Picker input -->
+  <select name="soundSelector" id="soundSelector">
+      <option value="snare.mp3">snare</option>
+      <option value="hihat.mp3">hihat</option>
+      <option value="kick.mp3">kick</option>
+  </select>
+
   <div id="usernameContainer">
-    <input type="text" id="usernameInput" placeholder="Enter your username" />
-    <label for="colorPicker">Choose Drum Color:</label>
-    <input type="color" id="colorPicker" value="#ff0000" />
-    <button id="joinButton">Join Drum Circle</button>
+    <div>
+      <p>Users connected:<span id="userCount">0</span>/12</p>
+    </div>
+    <div>
+      <input type="text" id="usernameInput" placeholder="Enter your username" maxlength="12" />
+    </div>
+    <div>
+      <label for="colorPicker">Choose Drum Color:</label>
+      <input type="color" id="colorPicker" value="#ff0000" />
+    </div>
+    <div>
+      <button id="joinButton">Join Drum Circle</button>
+    </div>
+  </div>
+  <!-- Show/Hide button for the history and BPM slider -->
+  <button id="toggleHistoryButton">Show History & Slider</button>
+  
+  <!-- History and BPM container (hidden by default) -->
+  <div id="historyAndBpmContainer" style="display: none;"> <!-- Hidden by default -->
+    <!-- History container for the drum notes -->
+    <div id="historyContainer">
+      <!-- Notes will be added here dynamically -->
+    </div>
+  
+    <!-- BPM control container, placed right under the history container -->
+    <div id="bpmContainer">
+      <label for="bpmDial">Speed: <span id="bpmValue">1x</span></label>
+      <input type="range" id="bpmDial" min="0.5" max="2" step="0.1" value="1">
+    </div>
+    <!-- Checkbox to toggle showing the username in the notes -->
+    <div id="usernameToggleContainer">
+      <label for="usernameToggle">Usernames</label>
+      <input type="checkbox" id="usernameToggle" checked>  <!-- Checked by default -->
+    </div>
   </div>
 
-  <!-- Drum Circle where drums will be dynamically added -->
   <div id="drumCircle" style="display: none;"></div>
-
-  <!-- Link to the JavaScript file -->
   <script src="src/index.js"></script>
 </body>
 </html>
